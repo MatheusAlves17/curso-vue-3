@@ -11,22 +11,20 @@ export default createStore({
       {
         id: 1,
         nome: 'Caneta',
-        preco: '1.80'
+        preco: 1.80
       },
       {
         id: 2,
         nome: 'Mochila',
-        preco: '80'
+        preco: 80
       },
       {
         id: 3,
         nome: 'Caderno',
-        preco: '10.20'
+        preco: 10.20
       },
     ],
     cart:[]
-  },
-  getters: {
   },
   mutations: {
     updateUser(state, data){
@@ -38,6 +36,11 @@ export default createStore({
     removeCart(state, id){
       let idx = state.cart.findIndex(o => o.id === id)
       state.cart.splice(idx,1)
+    }
+  },
+  getters: {
+    total(state){
+      return state.cart.reduce((total, item) => total += item.preco, 0)
     }
   },
   actions: {

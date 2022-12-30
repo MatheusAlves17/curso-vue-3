@@ -1,5 +1,6 @@
 <template>
     <div>
+        {{ $store.getters.total }}
         <AppProduct
             v-for="product in $store.state.products"
             :key="product.id"
