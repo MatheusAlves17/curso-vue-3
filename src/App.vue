@@ -1,20 +1,21 @@
 <template>
-  <p>{{ $store.state.user.first_name }} {{ $store.state.user.last_name }}</p>
-  <p>{{ $store.state.user.email }}</p>
+  <AppProducts/>
   <button @click="updateUser()">Update</button>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import AppProducts from './components/Products/AppProducts.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  },
+    // HelloWorld,
+    AppProducts
+},
   methods:{
     updateUser(){
       let newUser = {
@@ -23,8 +24,8 @@ export default {
         email: 'matt@alves.com'
       }
       this.$store.commit('updateUser', newUser)
-
-    }
+    },
+    
   },
   created(){
   }
@@ -36,7 +37,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
