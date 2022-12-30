@@ -11,6 +11,9 @@ export default createStore({
   getters: {
   },
   mutations: {
+    updateUser(state, data){
+      state.user = data
+    }
   },
   actions: {
   },
