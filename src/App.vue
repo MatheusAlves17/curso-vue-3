@@ -1,9 +1,10 @@
 <template>
   <AppProducts/>
-  <button @click="updateUser()">Update</button>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-
+  <p>{{ $store.state.user.first_name }} {{ $store.state.user.last_name }}</p>
+  <p> {{ $store.state.user.email }} </p>
+  <button @click="updateUser()">Update</button>
 </template>
 
 <script>
@@ -23,7 +24,10 @@ export default {
         last_name: 'Alves',
         email: 'matt@alves.com'
       }
-      this.$store.commit('updateUser', newUser)
+      // this.$store.commit('updateUser', newUser)
+      this.$store.dispatch('storeUser', newUser).then(() => {
+        console.log('Salvo com sucesso!')
+      })
     },
     
   },
