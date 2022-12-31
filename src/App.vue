@@ -1,11 +1,12 @@
 <template>
   <p>{{ user.first_name }} {{ user.last_name }}</p>
+  <p>{{ fullName }}</p>
   <p>{{ admin.first_name }} {{ admin.last_name }}</p>
   <button @click="mudarNome()">Alterar</button>
 </template>
 
 <script>
-import { reactive, ref } from 'vue';
+import { reactive, ref, computed, watch } from 'vue';
 export default {
   name: 'App',
   components: {
@@ -25,10 +26,14 @@ export default {
       admin.value.last_name = 'Disabled'
     }
 
+    const fullName = computed(() => `${user.first_name} ${user.last_name}`)
+    watch(user, () => console.log('User alterado!'))
+
     return {
       mudarNome,
       user,
-      admin
+      admin,
+      fullName
     }
   }
 }
